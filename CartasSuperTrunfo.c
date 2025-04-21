@@ -12,10 +12,15 @@ int main(){
     char estado[50];
     char codigo[50];
     char nomecidade[50];
-    int populacao;
+    unsigned long int populacao;
     float area;
     float pib;
     int turisticos;
+    float densidade;
+    float pibpcap;             // Abreviei pib per capita para nao ficar tao grande nas variaveis!
+    
+    
+
 
 // Cidade 02
 
@@ -23,20 +28,23 @@ int main(){
     char estado2[50];
     char codigo2[50];
     char nomecidade2[50];
-    int populacao2;
+    unsigned long int populacao2;
     float area2;
     int turisticos2;
-    float pib2;                    
+    float pib2;
+    float densidade2;
+    float pibpcap2;             // Abreviei pib per capita para nao ficar tao grande nas variaveis!
+     
 
 
-    // Adicionar as informacoes da cidade 01
+    // Explicacao para o usuario + adicionar as informacoes da cidade 01
 
     printf("Desafio Super Trunfo! :)\n");
     printf("\n");
     printf("Insira as informacoes da sua primeira carta");
-    printf("\n");
+    printf("\n"); 
 
-    
+
     printf("Digite o nome do estado: \n");
     scanf(" %[^\n]", estado);
 
@@ -50,7 +58,7 @@ int main(){
 
 
     printf("Digite a quantidade de habitantes: \n");
-    scanf("%d", &populacao);
+    scanf("%lu", &populacao);
 
 
     printf("Digite o tamanho da area: \n");
@@ -64,28 +72,36 @@ int main(){
     printf("Digite a quantidade de pontos turisticos: \n");
     scanf("%d", &turisticos);
 
+
+    // Calculo da densidade populacional(1)
+        densidade = populacao / area; // Cidade 01
+         
+    // Calculo do pib per capita (1)
+        pibpcap = pib / populacao; // Cidade 01 
+
+    
     // Respostas cidade 01 
 
     printf("Estado: %s\n", estado);
     printf("Codigo: %s\n", codigo);
     printf("Cidade: %s\n", nomecidade);
-    printf("Populacao: %d\n", populacao);
+    printf("Populacao: %lu\n", populacao);
     printf("Area: %f\n", area);
     printf("PIB: %f\n", pib);
     printf("Pontos Turisticos: %d\n", turisticos);
+    printf("Densidade Populacional: %.3f hab/km²\n", densidade);
+    printf("PIB per capita: %.3f reais\n", pibpcap);
     printf("\n");
     printf("Carta 01 cadastrada!\n");
     printf("\n");
 
     
     // Adicionar as informacoes da cidade 02
-
-    
     printf("\n");
     printf("Insira as informacoes da sua segunda carta");
     printf("\n");
 
-    
+
     printf("Digite o nome do segundo estado: \n");
     scanf(" %[^\n]", estado2);
 
@@ -99,7 +115,7 @@ int main(){
 
 
     printf("Digite a quantidade de habitantes: \n");
-    scanf("%d", &populacao2);
+    scanf("%lu", &populacao2);
 
 
     printf("Digite o tamanho da segunda area: \n");
@@ -113,20 +129,51 @@ int main(){
     printf("Digite a quantidade de pontos turisticos: \n");
     scanf("%d", &turisticos2);
 
-    // Respostas cidade 02 
+     // Calculo da densidade populacional (2)
+    densidade2 = populacao2 / area2; // Cidade 02
 
+    // Calculo do pib per capita (2)
+    pibpcap2 = pib2 / populacao2; // Cidade 02
+
+    // Respostas cidade 02 
+    
     printf("Estado: %s\n", estado2);
     printf("Codigo: %s\n", codigo2);
     printf("Cidade: %s\n", nomecidade2);
-    printf("Populacao: %d\n", populacao2);
+    printf("Populacao: %lu\n", populacao2);
     printf("Area: %f\n", area2);
     printf("PIB: %f\n", pib2);
     printf("Pontos Turisticos: %d\n", turisticos2);
+    printf("Densidade Populacional: %.3f hab/km²\n", densidade2);
+    printf("PIB per capita: %.3f reais\n", pibpcap2);
     printf("\n");
     printf("Carta 02 cadastrada!\n");
     printf("\n");
 
+
+    // Comparacao, Super Poder
+
+    int vencedor;
+    int inverso;
+    float superpoder;
+    float superpoder2;
+
+    superpoder = populacao + area + pib + turisticos + pibpcap;
+    superpoder2 = populacao2 + area2 + pib2 + turisticos2 + pibpcap2;
+
+    vencedor = superpoder > superpoder2;
+    inverso = densidade < densidade2;
+
+    // Exibindo resultados das comparacoes
+
+    printf("Vencedor geral: \n%d", vencedor);
+    printf("\n");
+    printf("Melhor densidade: \n%d", inverso);
+    
+
     // Observação pro professor: tentei usar o %s igual é mostrado no videoaula "Hora de codar" mas obtive erros na hora de compilar, as respostas eram puladas e não perguntadas, então optei pelo uso de " %[^\n]"
+    // Como foi pedido, na aba de super poder foi referido a cidade 1 como 1 e a cidade 2 como 0
+
 
 
 

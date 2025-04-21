@@ -12,12 +12,15 @@ int main(){
     char estado[50];
     char codigo[50];
     char nomecidade[50];
-    int populacao;
+    unsigned long int populacao;
     float area;
     float pib;
     int turisticos;
     float densidade;
     float pibpcap;             // Abreviei pib per capita para nao ficar tao grande nas variaveis!
+    
+    
+
 
 // Cidade 02
 
@@ -25,12 +28,13 @@ int main(){
     char estado2[50];
     char codigo2[50];
     char nomecidade2[50];
-    int populacao2;
+    unsigned long int populacao2;
     float area2;
     int turisticos2;
     float pib2;
     float densidade2;
-    float pibpcap2;             // Abreviei pib per capita para nao ficar tao grande nas variaveis!  
+    float pibpcap2;             // Abreviei pib per capita para nao ficar tao grande nas variaveis!
+     
 
 
     // Explicacao para o usuario + adicionar as informacoes da cidade 01
@@ -54,7 +58,7 @@ int main(){
 
 
     printf("Digite a quantidade de habitantes: \n");
-    scanf("%d", &populacao);
+    scanf("%lu", &populacao);
 
 
     printf("Digite o tamanho da area: \n");
@@ -82,7 +86,7 @@ int main(){
     printf("Estado: %s\n", estado);
     printf("Codigo: %s\n", codigo);
     printf("Cidade: %s\n", nomecidade);
-    printf("Populacao: %d\n", populacao);
+    printf("Populacao: %lu\n", populacao);
     printf("Area: %f\n", area);
     printf("PIB: %f\n", pib);
     printf("Pontos Turisticos: %d\n", turisticos);
@@ -94,9 +98,10 @@ int main(){
 
     
     // Adicionar as informacoes da cidade 02
-
+    printf("\n");
     printf("Insira as informacoes da sua segunda carta");
     printf("\n");
+
 
     printf("Digite o nome do segundo estado: \n");
     scanf(" %[^\n]", estado2);
@@ -111,7 +116,7 @@ int main(){
 
 
     printf("Digite a quantidade de habitantes: \n");
-    scanf("%d", &populacao2);
+    scanf("%lu", &populacao2);
 
 
     printf("Digite o tamanho da segunda area: \n");
@@ -140,7 +145,7 @@ int main(){
     printf("Estado: %s\n", estado2);
     printf("Codigo: %s\n", codigo2);
     printf("Cidade: %s\n", nomecidade2);
-    printf("Populacao: %d\n", populacao2);
+    printf("Populacao: %lu\n", populacao2);
     printf("Area: %f\n", area2);
     printf("PIB: %f\n", pib2);
     printf("Pontos Turisticos: %d\n", turisticos2);
@@ -150,11 +155,55 @@ int main(){
     printf("Carta 02 cadastrada!\n");
     printf("\n");
 
+
+    // Super poder, comparacao
+    // Utilizei "C(nome da variavel)" para indicar comparação e ficar mais abreviado
+    
+   
+    int vencedor;
+    int inverso;
+    float superpoder;
+    float superpoder2;
+    int cpopulacao = populacao > populacao2;
+    int carea = area > area2;
+    int cpib = pib > pib2;
+    int cturisticos = turisticos > turisticos2;
+    int cdensidade = densidade < densidade2;
+    int cpibpcap = pibpcap > pibpcap2;
+    
+
+
+    superpoder = populacao + area + pib + turisticos + pibpcap;
+    superpoder2 = populacao2 + area2 + pib2 + turisticos2 + pibpcap2;
+
+    vencedor = superpoder > superpoder2;
+    inverso = densidade < densidade2;
+
+    // Exibindo resultados das comparacoes
+
+    printf("Maior populacao: Carta %d\n", cpopulacao);
+    printf("\n");
+    printf("Maior area: Carta %d\n", carea);
+    printf("\n");
+    printf("Maior PIB: Carta %d\n", cpib);
+    printf("\n");
+    printf("Mais pontos turisticos: Carta %d\n", cturisticos);
+    printf("\n");
+    printf("Melhor densidade populacional: Carta %d\n", inverso);
+    printf("\n");
+    printf("Maior pib per capita: Carta %d\n", cpibpcap);
+    printf("\n");
+    printf("Super Poder: Carta %d\n", vencedor);
+    printf("\n");
     
     
+
+
+
+
 
     // Observação pro professor: tentei usar o %s igual é mostrado no videoaula "Hora de codar" mas obtive erros na hora de compilar, as respostas eram puladas e não perguntadas, então optei pelo uso de " %[^\n]"
-
+    // Como foi pedido, na aba de super poder foi referido a cidade 1 como 1 e a cidade 2 como 0
 
 
 
