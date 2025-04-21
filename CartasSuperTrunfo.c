@@ -78,8 +78,9 @@ int main(){
          
     // Calculo do pib per capita (1)
         pibpcap = pib / populacao; // Cidade 01 
+         
 
-    
+
     // Respostas cidade 01 
 
     printf("Estado: %s\n", estado);
@@ -135,7 +136,11 @@ int main(){
     // Calculo do pib per capita (2)
     pibpcap2 = pib2 / populacao2; // Cidade 02
 
+
+
     // Respostas cidade 02 
+
+
     
     printf("Estado: %s\n", estado2);
     printf("Codigo: %s\n", codigo2);
@@ -151,12 +156,22 @@ int main(){
     printf("\n");
 
 
-    // Comparacao, Super Poder
-
+    // Super poder, comparacao
+    // Utilizei "C(nome da variavel)" para indicar comparação e ficar mais abreviado
+    
+   
     int vencedor;
     int inverso;
     float superpoder;
     float superpoder2;
+    int cpopulacao = populacao > populacao2;
+    int carea = area > area2;
+    int cpib = pib > pib2;
+    int cturisticos = turisticos > turisticos2;
+    int cdensidade = densidade < densidade2;
+    int cpibpcap = pibpcap > pibpcap2;
+    
+
 
     superpoder = populacao + area + pib + turisticos + pibpcap;
     superpoder2 = populacao2 + area2 + pib2 + turisticos2 + pibpcap2;
@@ -166,10 +181,26 @@ int main(){
 
     // Exibindo resultados das comparacoes
 
-    printf("Vencedor geral: \n%d", vencedor);
+    printf("Maior populacao: Carta %d\n", cpopulacao);
     printf("\n");
-    printf("Melhor densidade: \n%d", inverso);
+    printf("Maior area: Carta %d\n", carea);
+    printf("\n");
+    printf("Maior PIB: Carta %d\n", cpib);
+    printf("\n");
+    printf("Mais pontos turisticos: Carta %d\n", cturisticos);
+    printf("\n");
+    printf("Melhor densidade populacional: Carta %d\n", inverso);
+    printf("\n");
+    printf("Maior pib per capita: Carta %d\n", cpibpcap);
+    printf("\n");
+    printf("Super Poder: Carta %d\n", vencedor);
+    printf("\n");
     
+    
+
+
+
+
 
     // Observação pro professor: tentei usar o %s igual é mostrado no videoaula "Hora de codar" mas obtive erros na hora de compilar, as respostas eram puladas e não perguntadas, então optei pelo uso de " %[^\n]"
     // Como foi pedido, na aba de super poder foi referido a cidade 1 como 1 e a cidade 2 como 0
